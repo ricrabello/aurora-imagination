@@ -1,0 +1,14 @@
+# Ignore heavy model weights
+models/*.safetensors
+models/*.ckpt
+
+# Ignore generated outputs (don't push your photos to the cloud)
+outputs/
+static/gen/
+
+# Python cache
+__pycache__/
+.env
+*.png
+*.jpg
+*.jpeg
