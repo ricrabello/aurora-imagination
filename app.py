@@ -21,6 +21,9 @@ def main():
         torch_dtype=torch.float16,
         use_auth_token=hf_token
     )
+    # Disable safety checker (NSFW filter)
+    if hasattr(pipe, 'safety_checker'):
+        pipe.safety_checker = lambda images, **kwargs: (images, [False]*len(images))
     try:
         pipe.to("cuda")
     except RuntimeError:
